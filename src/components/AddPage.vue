@@ -9,12 +9,12 @@
       </div>
 
       <div class="info">
-        <label>Titre de la page</label>
+        <label>Meta title     </label>
         <input class="input is-link" type="text" placeholder="Link input">
       </div>
 
       <div class="info">
-        <label>Titre de la page</label>
+        <label>Meta description</label>
         <input class="input is-link" type="text" placeholder="Link input">
       </div>
     </div>
@@ -34,9 +34,19 @@
             </span>
           </label>
         </div>
+
         </div>
+
       </div>
+
     </div>
+   <div class="cont">
+     <label>Corps du text</label>
+     <textarea class="corps" rows="10"></textarea>
+   </div>
+<div class="valide">
+  <button class="button is-danger">Créer la page</button>
+</div>
   </div>
 </template>
 <script>
@@ -45,7 +55,9 @@
 <style scoped>
 .content{
   display: flex;
+  flex-wrap: wrap;
 justify-content: space-between;
+  border: none;
 
 }
 .form{
@@ -60,6 +72,9 @@ justify-content: center;
   width: 60%;
 
 }
+.file-input{
+  width: 100%;
+}
 .img{
   width: 50%;
 
@@ -67,6 +82,7 @@ justify-content: center;
 
 label{
   margin: 0 5%;
+  width: 50%;
 }
 input{
   width: 60%;
@@ -90,6 +106,19 @@ img{
   justify-content: center;
   align-items: center;
 }
+.cont{
+  display: flex;
+  align-items: center;
+
+}
+.corps{
+  width: 30%;
+
+}
+.valide {
+  margin: 4% 3%;
+}
+
 
 
 </style>
