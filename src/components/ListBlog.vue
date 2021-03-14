@@ -1,12 +1,15 @@
 <template>
   <div>
-<div class="content">
+<div class="content" v-for="(articles, index) in this.$store.getters.Article" :key="(articles, index)">
   <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et consequat enim. Proin in condimentum mi. Curabitur sed nunc nisl. Nullam eu cursus velit, et hendrerit sem. Vestibulum fringilla est tortor, ac consectetur neque pretium non. Donec tincidunt leo sit amet accumsan fringilla. Integer sagittis, magna eget pulvinar scelerisque, ipsum massa ultrices justo, viverra suscipit ante magna at lectus. Morbi nulla quam, consequat in est ac, sollicitudin facilisis ante. Phasellus consequat eros arcu, in sagittis neque vestibulum non.
-  </p>
+  <div class="contentArticle"> 
+    <h2>{{articles[0]}}</h2>
+    <p>
+      {{articles[3]}}
+    </p>
+  </div>
   <button class="button is-warning is-light">Éditer</button>
-  <button class="delete is-large"></button>
+  <button class="delete is-large" v-on:click="removeArticle(index)"></button>
 </div>
   </div>
 </template>
@@ -29,9 +32,21 @@ p{
 button{
   margin: 3%;
 }
+
+.contentArticle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
 <script>
-export default {
-  name: 'list-blog',
-}
+  export default {
+    name: 'list-blog',
+    methods: {
+      removeArticle(index) {
+            this.$store.getters.Article.splice(index, 1)
+        },
+    }
+  }
+  
 </script>
