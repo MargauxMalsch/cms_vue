@@ -2,13 +2,13 @@
   <div>
 <div class="content" v-for="(articles, index) in this.$store.getters.Article" :key="(articles, index)">
   <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
-  <div class="contentArticle"> 
+  <div class="contentArticle">
     <h2>{{articles[0]}}</h2>
     <p>
       {{articles[3]}}
     </p>
   </div>
-  <button class="button is-warning is-light">Éditer</button>
+  <button-edit></button-edit>
   <button class="delete is-large" v-on:click="removeArticle(index)"></button>
 </div>
   </div>
@@ -40,8 +40,10 @@ button{
 }
 </style>
 <script>
+  import ButtonEdit from "@/components/btn/buttonEdit";
   export default {
     name: 'list-blog',
+    components: {ButtonEdit},
     methods: {
       removeArticle(index) {
             this.$store.getters.Article.splice(index, 1)
