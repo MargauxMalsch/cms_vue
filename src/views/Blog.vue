@@ -3,7 +3,7 @@
      <div class="content" >
        <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
        <div class="contentArticle">
-         <h2>tg</h2>
+         <router-link to="/blogindex"><h2>tg</h2></router-link>
          <p>
           ok connard
          </p>
