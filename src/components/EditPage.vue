@@ -6,22 +6,22 @@
       <div class="form">
         <div class="info">
           <label>Titre de la page</label>
-          <input class="input is-link" type="text" placeholder="Link input" v-model="title">
+          <input class="input is-link" type="text" placeholder="Link input" v-model="titleMod">
         </div>
 
         <div class="info">
           <label>Meta title</label>
-          <input class="input is-link" type="text" placeholder="Link input" v-model="metaTitle">
+          <input class="input is-link" type="text" placeholder="Link input" v-model="metaTitleMod">
         </div>
 
         <div class="info">
           <label>Meta description</label>
-          <input class="input is-link" type="text" placeholder="Link input" v-model="metaDesc">
+          <input class="input is-link" type="text" placeholder="Link input" v-model="metaDescMod">
         </div>
 
         <div class="info">
           <label for="content">Corps du post</label>
-          <textarea name="content" id="text" cols="50" rows="10" v-model="content"></textarea>
+          <textarea name="content" id="text" cols="50" rows="10" v-model="contentMod"></textarea>
         </div>
 
 
@@ -45,15 +45,34 @@
           </div>
         </div>
       </div>
-      <input type="submit" name="" id="validate" v-on:click='newArticle()'>
-      <button class="button is-primary">Fermer</button>
+      <input type="submit" name="" id="validate" v-on:click='modifyArticle(index)'>
+      <button class="button is-primary" v-on:click='close'>Fermer</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-name: "EditPage.vue"
+    name: "EditPage.vue",
+    props: ['title', 'metaTitle', 'metaDesc', 'content', 'index'],
+    data() {
+      return {
+        titleMod: this.title,
+        metaTitleMod: this.metaTitle,
+        metaDescMod: this.metaDesc,
+        contentMod: this.content,
+        indexMod: this.index
+      }
+    },
+    methods: {
+        modifyArticle(index){
+          this.$store.getters.Article.splice(index, 1, [this.titleMod, this.metaTitleMod, this.metaDescMod, this.contentMod])
+          this.$emit('close')
+        },
+        close() {
+          this.$emit('close')
+        }
+    }
 }
 </script>
 

@@ -1,20 +1,45 @@
 <template>
-  <div>
-<div class="content" v-for="(articles, index) in this.$store.getters.Article" :key="(articles, index)" id="edit">
-  <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
-  <div class="contentArticle">
-    <h2>{{articles[0]}}</h2>
-    <p>
-      {{articles[3]}}
-    </p>
+<div id="containerEdit">
+  <div id="listBlog">
+    <div class="content" v-for="(articles, index) in this.$store.getters.Article" :key="(articles, index)" id="edit">
+        <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
+        <div class="contentArticle">
+            <h2>{{articles[0]}}</h2>
+            <p>
+              {{articles[3]}}
+            </p>
+        </div>
+        <button v-on:click='editArticle(index)' class="button is-warning is-light">Edit</button>
+        <button class="delete is-large" v-on:click="removeArticle(index)"></button>
+    </div>
   </div>
-  <button-edit ></button-edit>
-<EditPage></EditPage>
-  <button class="delete is-large" v-on:click="removeArticle(index)"></button>
+  <div id="edit2">
+      <edit-page v-if="editArt" :title='title' :metaTitle='metaTitle' :metaDesc='metaDesc' :content='content' :index='index' @close='close'></edit-page>
+  </div>
+    
 </div>
-  </div>
 </template>
 <style>
+
+#edit2 {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+#containerEdit {
+  display: flex;
+  justify-content: center;
+}
+
+#listBlog {
+  width: 50%;
+}
+
+#listBlog div {
+  width: 100%;
+}
+
 .content{
   display: flex;
   flex-direction: row;
@@ -41,19 +66,39 @@ button{
 }
 </style>
 <script>
-  import ButtonEdit from "@/components/btn/buttonEdit";
   import EditPage from "@/components/EditPage";
   export default {
     name: 'list-blog',
-
-    components: {ButtonEdit, EditPage},
+    data() {
+      return {
+        editArt: false,
+        title: "",
+        metaTitle: "",
+        metaDesc: "",
+        content: "",
+        index: 0
+      }
+    },
+    components: {EditPage},
 
     methods: {
       removeArticle(index) {
             this.$store.getters.Article.splice(index, 1)
-        },
-
+      },
+      editArticle(index) {
+        console.log('salut')
+        this.editArt = true
+        this.$store.getters.Article[index]
+        this.title = this.$store.getters.Article[index][0]
+        this.metaTitle = this.$store.getters.Article[index][1]
+        this.metaDesc = this.$store.getters.Article[index][2]
+        this.content = this.$store.getters.Article[index][3]
+        this.index = index
+      },
+      close() {
+        this.editArt = false
       }
+    }
   }
 
   
