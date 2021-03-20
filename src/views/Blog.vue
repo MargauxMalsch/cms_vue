@@ -41,3 +41,17 @@ button{
 
 }
 </style>
+<script>
+export default {
+  //data(){
+    //return{
+      //articleTitle:this.$route.params.title,
+    //}
+  //},
+  //methods:{
+//destination(){
+  //return store.articles.find({
+    //destination => destination.title === this.articleTitle
+  //})
+}
+</script>

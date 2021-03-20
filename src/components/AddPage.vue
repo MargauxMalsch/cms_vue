@@ -20,10 +20,10 @@
 
         <div class="info">
           <label for="content">Corps du post</label>
-          <textarea name="content" id="" cols="50" rows="10" v-model="content"></textarea>
+          <textarea name="content" id="text" cols="50" rows="10" v-model="content"></textarea>
         </div>
 
-        <input type="submit" name="" id="" v-on:click='newArticle()'>
+        <input type="submit" name="" id="txt" v-on:click='newArticle()'>
       </div>
     
       <div class="img">
