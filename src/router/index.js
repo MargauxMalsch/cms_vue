@@ -39,7 +39,19 @@ const routes = [
     name: 'BlogIndex',
     component: () => import('../views/BlogIndex.vue')
 
-  }
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/Sign.vue')
+
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Log.vue')
+
+  },
 ]
 
 const router = new VueRouter({

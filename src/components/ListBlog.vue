@@ -11,6 +11,17 @@
   <button-edit></button-edit>
   <button class="delete is-large" v-on:click="removeArticle(index)"></button>
 </div>
+
+<!-- <div class="content" v-for="(users, index) in this.$store.getters.User" :key="(users, index)">
+  <div class="contentArticle">
+    <h2>{{users[0]}}</h2>
+    <p>
+      {{users[1]}}
+    </p>
+  </div>
+  <button-edit></button-edit>
+  <button class="delete is-large" v-on:click="removeArticle(index)"></button>
+</div> -->
   </div>
 </template>
 <style>
