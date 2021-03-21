@@ -35,7 +35,7 @@ const routes = [
 
   },
   {
-    path: '/blogindex',
+    path: '/blog:title',
     name: 'BlogIndex',
     component: () => import('../views/BlogIndex.vue')
 
