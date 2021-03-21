@@ -10,11 +10,7 @@
        </div>
  </div>
 
-  <div v-if="this.$store.getters.IsLogged === true">
-    <p>BIENVENIDO {{ this.$store.getters.Username }}</p>
-  </div>
-
-   </div>
+</div>
 </template>
 <style scoped>
 .content{

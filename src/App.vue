@@ -4,6 +4,7 @@
       <router-link to="/admin">Gerer le blog</router-link> |
       <router-link to="/">Blog </router-link> |
       <router-link to="/login">Login</router-link>
+      <router-link to="/profile" v-if="this.$store.getters.IsLogged === true"> | <span id="profil">{{ this.$store.getters.Username }}</span></router-link>
     </div>
     <router-view/>
   </div>
@@ -29,5 +30,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#nav #profil {
+  color: red;
 }
 </style>

@@ -52,6 +52,12 @@ const routes = [
     component: () => import('../views/Log.vue')
 
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue')
+
+  },
 ]
 
 const router = new VueRouter({
