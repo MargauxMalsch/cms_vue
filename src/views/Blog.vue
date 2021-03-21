@@ -1,15 +1,5 @@
 <template>
- <div>
-     <div class="content" >
-       <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
-       <div class="contentArticle">
-         <router-link to="/blogindex"><h2>tg</h2></router-link>
-         <p>
-          ok connard
-         </p>
-       </div>
- </div>
-   </div>
+    <list-blog-2></list-blog-2>
 </template>
 <style scoped>
 .content{
@@ -42,7 +32,9 @@ button{
 }
 </style>
 <script>
+import ListBlog2 from '../components/ListBlog2.vue'
 export default {
+  components: { ListBlog2 },
   //data(){
     //return{
       //articleTitle:this.$route.params.title,
