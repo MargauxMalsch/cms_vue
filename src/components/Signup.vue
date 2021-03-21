@@ -50,7 +50,8 @@ export default {
     },
     methods: {
         newUser() {
-            this.$store.dispatch('addUser', [this.username, this.password])
+            this.$store.dispatch('addUser', [this.username, this.password]);
+            this.$router.push({ name: 'Login' });
         },
     }
 }
