@@ -2,7 +2,7 @@
 <div id="containerEdit">
   <div id="listBlog">
     <div class="content" v-for="(articles, index) in this.$store.getters.Article" :key="(articles, index)" id="edit">
-        <img src="https://sm.ign.com/ign_fr/news/b/baby-yoda-/baby-yoda-is-being-added-to-minecraft_bjqc.jpg">
+        <img v-bind:src="articles[4]">
         <div class="contentArticle">
             <h2>{{articles[0]}}</h2>
             <p>
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div id="edit2">
-      <edit-page v-if="editArt" :title='title' :metaTitle='metaTitle' :metaDesc='metaDesc' :content='content' :index='index' @close='close'></edit-page>
+      <edit-page v-if="editArt" :title='title' :metaTitle='metaTitle' :metaDesc='metaDesc' :content='content' :index='index' :img='img' @close='close'></edit-page>
   </div>
     
 </div>
@@ -76,6 +76,7 @@ button{
         metaTitle: "",
         metaDesc: "",
         content: "",
+        img: "",
         index: 0
       }
     },
@@ -93,6 +94,7 @@ button{
         this.metaTitle = this.$store.getters.Article[index][1]
         this.metaDesc = this.$store.getters.Article[index][2]
         this.content = this.$store.getters.Article[index][3]
+        this.img = this.$store.getters.Article[index][4]
         this.index = index
       },
       close() {

@@ -24,27 +24,12 @@
           <textarea name="content" id="text" cols="50" rows="10" v-model="contentMod"></textarea>
         </div>
 
-
-      </div>
-
-      <div class="img">
-        <div class="upload">
-          <img src="https://images.unsplash.com/photo-1476493279419-b785d41e38d8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=61eaea85f1aa3d065400179c78163f15">
-          <div class="file">
-            <label class="file-label">
-              <input class="file-input" type="file" name="resume">
-              <span class="file-cta">
-              <span class="file-icon">
-                 <i class="fas fa-upload"></i>
-              </span>
-            <span class="file-label">
-                  Choose a file…
-            </span>
-            </span>
-            </label>
-          </div>
+        <div class="info">
+          <label for="content">Corps du post</label>
+          <input type="text" name="img" placeholder="Link img" v-model="imgMod">
         </div>
       </div>
+
       <input type="submit" name="" id="validate" v-on:click='modifyArticle(index)'>
       <button class="button is-primary" v-on:click='close'>Fermer</button>
     </div>
@@ -54,19 +39,20 @@
 <script>
 export default {
     name: "EditPage.vue",
-    props: ['title', 'metaTitle', 'metaDesc', 'content', 'index'],
+    props: ['title', 'metaTitle', 'metaDesc', 'content', 'img', 'index'],
     data() {
       return {
         titleMod: this.title,
         metaTitleMod: this.metaTitle,
         metaDescMod: this.metaDesc,
         contentMod: this.content,
-        indexMod: this.index
+        indexMod: this.index,
+        imgMod: this.img
       }
     },
     methods: {
         modifyArticle(index){
-          this.$store.getters.Article.splice(index, 1, [this.titleMod, this.metaTitleMod, this.metaDescMod, this.contentMod])
+          this.$store.getters.Article.splice(index, 1, [this.titleMod, this.metaTitleMod, this.metaDescMod, this.contentMod, this.imgMod])
           this.$emit('close')
         },
         close() {

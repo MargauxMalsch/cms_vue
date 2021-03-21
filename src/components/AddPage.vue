@@ -23,26 +23,12 @@
           <textarea name="content" id="text" cols="50" rows="10" v-model="content"></textarea>
         </div>
 
+        <div class="info">
+          <label for="content">Corps du post</label>
+          <input type="text" name="img" placeholder="Link img" v-model="img">
+        </div>
+
         <input type="submit" name="" id="txt" v-on:click='newArticle()'>
-      </div>
-    
-      <div class="img">
-        <div class="upload">
-        <img src="https://images.unsplash.com/photo-1476493279419-b785d41e38d8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=61eaea85f1aa3d065400179c78163f15">
-        <div class="file">
-          <label class="file-label">
-            <input class="file-input" type="file" name="resume">
-            <span class="file-cta">
-              <span class="file-icon">
-                 <i class="fas fa-upload"></i>
-              </span>
-            <span class="file-label">
-                  Choose a file…
-            </span>
-            </span>
-          </label>
-        </div>
-        </div>
       </div>
     </div>
   </div>
@@ -55,11 +41,12 @@
                 metaTitle: '',
                 metaDesc: '',
                 content: '',
+                img: '',
             }
         },
         methods: {
             newArticle() {
-                this.$store.dispatch('addArticle', [this.title, this.metaTitle, this.metaDesc, this.content])
+                this.$store.dispatch('addArticle', [this.title, this.metaTitle, this.metaDesc, this.content, this.img])
             },
         }
     }
